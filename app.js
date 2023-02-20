@@ -39,6 +39,18 @@ app.post('/user', (req, res) => {
     res.send(`Hello ${name}`);
 })
 
+//Regular Expression(RegExp)
+app.get('/product/:id([0-9]{3})', (req, res) => {
+    res.send(`<h2>ID is: ${req.params.id}</h2>`);
+});
+app.get('/product/:title([a-zA-Z0-9]+)', (req, res) => {
+    res.send(`<h2>Title is: ${req.params.title}</h2>`);
+});
+//wild card
+app.get('*', (req, res) => {
+    res.status(404).send(`<h2>Not a valid url</h2>`);
+})
+
 app.use((req, res) => {
     res.send("<h1>404! Not Found.</h1>");
 });
