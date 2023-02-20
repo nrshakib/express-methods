@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
+require('dotenv').config();
 var bodyParser = require('body-parser');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 const userRoute = require('./Routes/users.route');
+
 
 app.use("/user", userRoute);
 // parse application/x-www-form-urlencoded
